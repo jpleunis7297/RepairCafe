@@ -21,53 +21,91 @@ include 'classes/register.php';
 <link rel="stylesheet/less" type="text/css" href="style.less" />
 <div class="container">
 
-    <div class="row">
+    <form class="form-group" action="#" method="post">
 
-        <div class="col-lg-12">
+        <!-- registratie formulier -->
+        <div class="row">
 
-            <form class="form-group" action="#" method="post">
+            <label for="firstName">Naam: </label>
+            <input type="text" class="form-control" name="firstName" placeholder="Bijv. 'Peter'" required>
 
-                <label for="username">Gebruikersnaam: </label>
-                <input type="text" class="form-control" name="username" placeholder="i.e. 'John Doe'" required><br>
+            <label for="middleName">Tussenvoegsel: </label><br>
+            <input type="text" class="form-control" name="middleName" placeholder="Bijv. 'van den'">
 
-                <label for="password">Wachtwoord: </label>
-                <input type="password" class="form-control" name="password" placeholder="*******" required><br>
+            <label for="lastName">Achternaam: </label><br>
+            <input type="text" class="form-control" name="lastName" placeholder="Bijv. 'Petersen'" required>
 
-                <label for="password">Vul uw wachtwoord nogmaals in </label>
-                <input type="password" class="form-control" name="password-verify" placeholder="*******" required><br>
+            <label for="phone">Telefoon: </label>
+            <input type="number" class="form-control" name="phone" placeholder="Bijv. '0612345678'" required><br>
 
-                <label for="email">E-mail </label>
-                <input type="email" class="form-control" name="email" placeholder="i.e. 'johndoe@gmail.com'" required><br>
+            <label for="email">E-mail: </label>
+            <input type="email" class="form-control" name="email" placeholder="Bijv. 'johndoe@gmail.com'" required><br>
 
-                <input type="submit" name="submit" value="Log in">
+            <label for="password">Wachtwoord: </label>
+            <input type="password" class="form-control" name="password" placeholder="*******" required><br>
 
-            </form>
+            <label for="password">Vul uw wachtwoord nogmaals in </label>
+            <input type="password" class="form-control" name="password-verify" placeholder="*******" required><br>
 
-            <?php
+            <label for="birthDate">Geboorte datum: </label>
+            <input type="text" class="form-control" name="birthDate" placeholder="(mm-dd-jjjj)"><br>
 
-            if (isset($_POST['submit']) && $_POST['password'] === $_POST['password-verify']){
+            <label for="street">Straat: </label>
+            <input type="text" class="form-control" name="street" placeholder="Bijv. 'hoogstraat'" required>
 
-                $test = new register('1233','Over','van','baatje','kleterstraat','11','A','3862FG','harderwijk','033245987',$_POST['email'],'1993-01-15', $_POST['password']);
+            <label for="houseNumber">Huisnummer: </label>
+            <input type="text" class="form-control" name="houseNumber" placeholder="Bijv. '22'" required>
 
-                $test->registerCustomer();
+            <label for="houseNumberSuffix">Toevoeging: </label>
+            <input type="text" class="form-control" name="houseNumberSuffix" placeholder="Bijv. 'A, B'">
 
-            };
+            <label for="postalCode">Postcode: </label>
+            <input type="text" class="form-control" name="postalCode" placeholder="Bijv. '1234 AB'" required>
 
-            if(isset($_POST['password']) != isset($_POST['password-verify'])){
-
-                echo "<script>
-                        alert('Uw wachtwoorden kwamen niet overeen!');
-                    </script>";
-
-            };
-
-
-
-            ?>
+            <label for="residence">Plaats: </label>
+            <input type="text" class="form-control" name="residence" placeholder="Bijv. 'Amsterdam'" required>
 
         </div>
 
-    </div>
+        <br>
+
+        <input type="submit" name="submit" value="Registreer!">
+
+    </form>
+
+    <?php
+
+    if (isset($_POST['submit']) && $_POST['password'] === $_POST['password-verify']){
+
+        $test = new register('1233',
+                                $_POST['firstName'],
+                                $_POST['middleName'],
+                                $_POST['lastName'],
+                                $_POST['street'],
+                                $_POST['houseNumber'],
+                                $_POST['houseNumberSuffix'],
+                                $_POST['postalCode'],
+                                $_POST['residence'],
+                                $_POST['phone'],
+                                $_POST['email'],
+                                $_POST['birthDate'],
+                                $_POST['password']);
+
+        $test->registerCustomer();
+
+        if(isset($_POST['password']) != isset($_POST['password-verify'])){
+
+            echo "<script> alert('Uw wachtwoorden kwamen niet overeen!'); </script>";
+
+        };
+
+    };
+
+
+
+
+
+    ?>
 
 </div>
 
