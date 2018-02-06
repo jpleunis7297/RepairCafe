@@ -12,6 +12,7 @@
     <script src="https://use.fontawesome.com/26bbb1ea68.js"></script>
   </head>
 
+  <title>Home</title>
   <body>
 
   <link rel="stylesheet/less" type="text/css" href="style.less" />
