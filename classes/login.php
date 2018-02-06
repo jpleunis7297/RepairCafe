@@ -15,35 +15,33 @@ class login
     //Constructor.
     public function __construct($email, $password){
 
-        $this->setCustomerTitleId($email);
-        $this->setFirstName($password);
+        $this->setUsername($email);
+        $this->setPassword($password);
 
     }
 
     //Setters.
-    public function setCustomerTitleId($email){
+    public function setUsername($email){
         $this->_email = $email;
     }
 
-    public function setFirstName($password){
+    public function setPassword($password){
         $this->_password = $password;
     }
 
     //Getters.
-    public function getCustomerTitleId(){
+    public function getUsername(){
         return $this->_email;
     }
 
-    public function getFirstName(){
+    public function getPassword(){
         return $this->_password;
     }
 
     //Method.
-    public function registerCustomer(){
+    public function loginCustomer(){
         $connect = new PDO('mysql:host=localhost;dbname=repaircafe', 'root' /*, $password*/);
         $sql = $connect->prepare("");
-        $sql->bindParam(':customerTitleId', $this->_customerTitleId, PDO::PARAM_INT);
-        $sql->bindParam(':firstName', $this->_firstName, PDO::PARAM_STR);
         $sql->execute();
     }
 
