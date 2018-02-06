@@ -28,9 +28,6 @@
                 <label for="name">Uw Naam: </label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Vul uw naam in."><br>
 
-                <label for="email">Uw e-mail adres: </label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Vul uw e-mail adres in."><br>
-
                 <label for="message">Uw bericht: </label>
                 <input type="textarea" class="form-control" id="message" name="message" placeholder="Uw bericht."><br>
 
@@ -38,7 +35,12 @@
 
               </form>
 
+            <?php
 
+            //$var = new request($_POST['name'], $_POST['message'], $_POST['category'], $_POST['status'] );
+            //$var->handleRequest();
+
+            ?>
 
         </div>
 

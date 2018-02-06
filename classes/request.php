@@ -42,20 +42,20 @@ class request
     }
 
     //Getters.
-    public function getUsername(){
-        return $this->_email;
+    public function getName(){
+        return $this->_name;
     }
 
-    public function getPassword(){
-        return $this->_password;
+    public function getMessage(){
+        return $this->_message;
     }
 
-    public function getPassword(){
-        return $this->_password;
+    public function getCategory(){
+        return $this->_category;
     }
     
-    public function getPassword(){
-        return $this->_password;
+    public function getStatus(){
+        return $this->_status;
     }
 
     //Method.
