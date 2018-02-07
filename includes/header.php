@@ -5,6 +5,11 @@
  * Date: 07/02/2018
  * Time: 09:59
  */
+
+session_start();
+
+$_SESSION['loggedIn'];
+
 ?>
 <!DOCTYPE html>
 <html>

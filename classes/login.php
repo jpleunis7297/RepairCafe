@@ -41,8 +41,15 @@ class login
     //Method.
     public function loginCustomer(){
         $connect = new PDO('mysql:host=localhost;dbname=repaircafe', 'root' /*, $password*/);
-        $sql = $connect->prepare("");
+        $sql = $connect->prepare("SELECT `customerEmailadress`, `customerPassword` FROM `customer` WHERE `customerEmailadress` = :email");
+        $sql->bindParam(':email',$this->_email, PDO::PARAM_STR);
         $sql->execute();
+
+        $row = $sql->fetchAll();
+
+        if ($this->_password = $row['customerPassword']){
+            $_SESSION['loggedIn'] = 1;
+        }
     }
 
 }
