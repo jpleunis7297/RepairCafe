@@ -65,7 +65,7 @@ if($_SESSION['loggedIn'] = 1){
     </div>';
 }
 
-    if (isset($_POST['submit']) && $_POST['password'] === $_POST['password-verify']){
+    if (isset($_POST['submit'])){
 
         $test = new register('1233',
                                 $_POST['firstName'],
