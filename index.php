@@ -29,7 +29,7 @@
                 <input type="text" class="form-control" id="name" name="name" placeholder="Vul uw naam in."><br>
 
                 <label for="message">Uw bericht: </label>
-                <input type="textarea" class="form-control" id="message" name="message" placeholder="Uw bericht."><br>
+                <textarea class="form-control" id="message" name="message" placeholder="Uw bericht."></textarea><br>
 
                 <input type="submit" name="submit" value="Verstuur">
 

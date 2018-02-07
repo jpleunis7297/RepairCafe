@@ -11,16 +11,12 @@ class request
     //properties.
     private $_name;
     private $_message;
-    private $_category;
-    private $_status;
 
     //Constructor.
-    public function __construct($name, $message, $category, $status){
+    public function __construct($name, $message){
 
         $this->setName($name);
         $this->setMessage($message);
-        $this->setCategory($category);
-        $this->setStatus($status);
 
     }
 
@@ -33,14 +29,6 @@ class request
         $this->_message = $message;
     }
 
-    public function setCategory($category){
-        $this->_category = $category;
-    }
-
-    public function setStatus($status){
-        $this->_status = $status;
-    }
-
     //Getters.
     public function getName(){
         return $this->_name;
@@ -48,14 +36,6 @@ class request
 
     public function getMessage(){
         return $this->_message;
-    }
-
-    public function getCategory(){
-        return $this->_category;
-    }
-    
-    public function getStatus(){
-        return $this->_status;
     }
 
     //Method.
