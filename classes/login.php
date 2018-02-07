@@ -48,7 +48,7 @@ class login
         $row = $sql->fetchAll();
 
         if ($this->_password = $row['customerPassword']){
-            $_SESSION['loggedIn'] = 1;
+            $_SESSION['loggedIn'] = 2;
         }
     }
 

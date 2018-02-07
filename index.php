@@ -2,10 +2,13 @@
 
 include 'includes/header.php';
 
+include 'classes/request.php';
+
 
 ?>
-
-    <div class="container">
+<?php
+if($_SESSION['loggedIn'] = 2){
+    echo '<div class="container">
 
       <div class="row">
 
@@ -23,18 +26,27 @@ include 'includes/header.php';
 
               </form>
 
-            <?php
-
-            //$var = new request($_POST['name'], $_POST['message'], $_POST['category'], $_POST['status'] );
-            //$var->handleRequest();
-
-            ?>
-
         </div>
 
       </div>
 
-    </div>
+    </div>';
+}
+
+
+if (isset($_POST['submit'])){
+
+    $var = new request($_POST['name'], $_POST['message']);
+    $var->handleRequest();
+
+}
+
+
+
+
+
+?>
+
 <?php
 
 include 'includes/footer.php';

@@ -5,7 +5,10 @@
     include 'classes/register.php';
 
 ?>
-<div class="container">
+<?php
+
+if($_SESSION['loggedIn'] = 1){
+    echo '<div class="container">
 
     <form class="form-group" action="#" method="post">
 
@@ -13,19 +16,19 @@
         <div class="row">
 
             <label for="firstName">Naam: </label>
-            <input type="text" class="form-control" name="firstName" placeholder="Bijv. 'Peter'" required>
+            <input type="text" class="form-control" name="firstName" placeholder="Bijv. \'Peter\'" required>
 
             <label for="middleName">Tussenvoegsel: </label><br>
-            <input type="text" class="form-control" name="middleName" placeholder="Bijv. 'van den'">
+            <input type="text" class="form-control" name="middleName" placeholder="Bijv. \'van den\'">
 
             <label for="lastName">Achternaam: </label><br>
-            <input type="text" class="form-control" name="lastName" placeholder="Bijv. 'Petersen'" required>
+            <input type="text" class="form-control" name="lastName" placeholder="Bijv. \'Petersen\'" required>
 
             <label for="phone">Telefoon: </label>
-            <input type="number" class="form-control" name="phone" placeholder="Bijv. '0612345678'" required><br>
+            <input type="number" class="form-control" name="phone" placeholder="Bijv. \'0612345678\'" required><br>
 
             <label for="email">E-mail: </label>
-            <input type="email" class="form-control" name="email" placeholder="Bijv. 'johndoe@gmail.com'" required><br>
+            <input type="email" class="form-control" name="email" placeholder="Bijv. \'johndoe@gmail.com\'" required><br>
 
             <label for="password">Wachtwoord: </label>
             <input type="password" class="form-control" name="password" placeholder="*******" required><br>
@@ -37,19 +40,19 @@
             <input type="text" class="form-control" name="birthDate" placeholder="(mm-dd-jjjj)"><br>
 
             <label for="street">Straat: </label>
-            <input type="text" class="form-control" name="street" placeholder="Bijv. 'hoogstraat'" required>
+            <input type="text" class="form-control" name="street" placeholder="Bijv. \'hoogstraat\'" required>
 
             <label for="houseNumber">Huisnummer: </label>
-            <input type="text" class="form-control" name="houseNumber" placeholder="Bijv. '22'" required>
+            <input type="text" class="form-control" name="houseNumber" placeholder="Bijv. \'22\'" required>
 
             <label for="houseNumberSuffix">Toevoeging: </label>
-            <input type="text" class="form-control" name="houseNumberSuffix" placeholder="Bijv. 'A, B'">
+            <input type="text" class="form-control" name="houseNumberSuffix" placeholder="Bijv. \'A, B\'">
 
             <label for="postalCode">Postcode: </label>
-            <input type="text" class="form-control" name="postalCode" placeholder="Bijv. '1234 AB'" required>
+            <input type="text" class="form-control" name="postalCode" placeholder="Bijv. \'1234 AB\'" required>
 
             <label for="residence">Plaats: </label>
-            <input type="text" class="form-control" name="residence" placeholder="Bijv. 'Amsterdam'" required>
+            <input type="text" class="form-control" name="residence" placeholder="Bijv. \'Amsterdam\'" required>
 
         </div>
 
@@ -58,8 +61,9 @@
         <input type="submit" name="submit" value="Registreer!">
 
     </form>
-
-    <?php
+    
+    </div>';
+}
 
     if (isset($_POST['submit']) && $_POST['password'] === $_POST['password-verify']){
 
@@ -79,23 +83,7 @@
 
         $test->registerCustomer();
 
-        if(isset($_POST['password']) != isset($_POST['password-verify'])){
-
-            echo "<script> alert('Uw wachtwoorden kwamen niet overeen!'); </script>";
-
-        };
-
     };
-
-
-
-
-
-    ?>
-
-</div>
-
-<?php
 
     include 'includes/footer.php';
 
