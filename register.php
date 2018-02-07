@@ -80,7 +80,6 @@ if($_SESSION['loggedIn'] = 1){
                                 $_POST['email'],
                                 $_POST['birthDate'],
                                 $_POST['password']);
-
         $test->registerCustomer();
 
     };
