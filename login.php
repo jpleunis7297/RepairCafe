@@ -2,6 +2,8 @@
 
 include 'includes/header.php';
 
+include 'classes/login.php';
+
 ?>
 
 <div class="container">
