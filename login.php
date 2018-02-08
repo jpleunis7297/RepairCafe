@@ -26,8 +26,8 @@ include 'classes/login.php';
 
             <?php
 
-            //$var = new login( $_POST['email'], $_POST['password'] );
-            //$var->loginCustomer();
+            $var = new login( $username, $password, $userPassword );
+            $var->loginCustomer();
 
             ?>
 

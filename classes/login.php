@@ -11,12 +11,14 @@ class login
     //properties.
     private $_email;
     private $_password;
+    private $_userPassword;
 
     //Constructor.
-    public function __construct($email, $password){
+    public function __construct($email, $password, $userPassword){
 
         $this->setUsername($email);
         $this->setPassword($password);
+        $this->setUserPassword($userPassword);
 
     }
 
@@ -29,6 +31,10 @@ class login
         $this->_password = $password;
     }
 
+    public function setUserPassword($userPassword){
+        $this->_userPassword = $userPassword;
+    }
+
     //Getters.
     public function getUsername(){
         return $this->_email;
@@ -38,17 +44,22 @@ class login
         return $this->_password;
     }
 
+    public function getUserPassword(){
+        return $this->_userPassword;
+    }
+
     //Method.
     public function loginCustomer(){
-        $connect = new PDO('mysql:host=localhost;dbname=repaircafe', 'root' /*, $password*/);
-        $sql = $connect->prepare("SELECT `customerEmailadress`, `customerPassword` FROM `customer` WHERE `customerEmailadress` = :email");
-        $sql->bindParam(':email',$this->_email, PDO::PARAM_STR);
-        $sql->execute();
+//        $connect = new PDO('mysql:host=localhost;dbname=repaircafe', 'root' /*, $password*/);
+//        $sql = $connect->prepare("SELECT `customerEmailadress`, `customerPassword` FROM `customer` WHERE `customerEmailadress` = :email");
+//        $sql->bindParam(':email',$this->_email, PDO::PARAM_STR);
+//        $sql->execute();
+//
+//        $row = $sql->fetchAll();
 
-        $row = $sql->fetchAll();
-
-        if ($this->_password = $row['customerPassword']){
-            $_SESSION['loggedIn'] = 2;
+        if ($this->_password === $userPassword){
+            $_SESSION['loggedIn'] = 1;
+            $_SESSION['username'] = $this->_email;
         }
     }
 

@@ -11,12 +11,16 @@ session_start();
 $_SESSION['loggedIn'];
 $_SESSION['username'];
 
-if ($_SESSION['loggedIn'] = 2){
+if ($_SESSION['loggedIn'] === 2){
     echo "<p>U bent ingelogd als ". $_SESSION['username'] ."</p>";
 }else{
     echo "";
 }
 
+
+$userPassword = 'admin';
+$password = 'admin';
+$email = 'Admin';
 ?>
 <!DOCTYPE html>
 <html>

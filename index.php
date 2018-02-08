@@ -17,7 +17,7 @@ if($_SESSION['loggedIn'] = 2){
               <form class="form-group" action="http://localhost" method="post">
 
                 <label for="name">Uw Naam: </label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Vul uw naam in."><br>
+                <input type="text" class="form-control" id="name" name="name" value="'.$_SESSION['username'].'"><br>
 
                 <label for="message">Uw bericht: </label>
                 <textarea class="form-control" id="message" name="message" placeholder="Uw bericht."></textarea><br>
