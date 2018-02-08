@@ -57,7 +57,7 @@ class login
 //
 //        $row = $sql->fetchAll();
 
-        if ($this->_password === $userPassword){
+        if ($this->_password === $this->_userPassword){
             $_SESSION['loggedIn'] = 1;
             $_SESSION['username'] = $this->_email;
         }
