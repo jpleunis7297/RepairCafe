@@ -200,6 +200,3 @@ class register
 
 }
 
-//$test = new register('1233','Over','van','Bite','kleterstraat','11','A','3862FG','harderwijk','033245987','joeypleunis@live.nl','1993-01-15','s495fd94');
-
-//$test->registerCustomer();
