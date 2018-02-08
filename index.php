@@ -4,8 +4,6 @@ include 'includes/header.php';
 
 include 'classes/request.php';
 
-
-var_dump($_SESSION['username']);
 ?>
 <?php
 if($_SESSION['loggedIn'] = 2){

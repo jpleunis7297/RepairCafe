@@ -21,7 +21,7 @@ if($_SESSION['loggedIn'] = 1){
                 <option>Mvr.</option>
             </select>
            
-            <label for="firstName">Naam: </label>
+            <label class="col-12" for="firstName">Naam: </label>
             <input type="text" class="form-control" name="firstName" placeholder="Bijv. \'Peter\'" required>
 
             <label for="middleName">Tussenvoegsel: </label><br>

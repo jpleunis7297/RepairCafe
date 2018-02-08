@@ -6,21 +6,25 @@
  * Time: 09:59
  */
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
 
-@$_SESSION['loggedIn'];
-@$_SESSION['username'];
+    session_start();
 
-if (@$_SESSION['loggedIn'] === 2){
-    echo "<p>U bent ingelogd als ". @$_SESSION['username'] ."</p>";
-}else{
-    echo "";
+    $_SESSION['loggedIn'];
+    $_SESSION['username'];
+
+    if ($_SESSION['loggedIn'] === 5){
+        echo "<p>U bent ingelogd als ". $_SESSION['username'] ."</p>";
+    }else{
+        echo "";
+    }
+
+
 }
 
 
-$userPassword = 'admin';
-$password = 'admin';
-$email = 'Admin';
+
+
 ?>
 <!DOCTYPE html>
 <html>
