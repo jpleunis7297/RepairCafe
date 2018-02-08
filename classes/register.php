@@ -9,7 +9,7 @@
 class register
 {
     //properties.
-    private $_customerTitleId;
+    private $_customerTitle;
     private $_firstName;
     private $_middleName;
     private $_lastName;
@@ -24,9 +24,9 @@ class register
     private $_password;
 
     //Constructor.
-    public function __construct($customerTitleId, $firstName, $middleName, $lastName, $street, $houseNumber, $houseNumberSuffix, $postalCode, $residence, $phonenumber, $emailAddress, $birthdate, $password){
+    public function __construct($customerTitle, $firstName, $middleName, $lastName, $street, $houseNumber, $houseNumberSuffix, $postalCode, $residence, $phonenumber, $emailAddress, $birthdate, $password){
 
-        $this->setCustomerTitleId($customerTitleId);
+        $this->setCustomerTitle($customerTitle);
         $this->setFirstName($firstName);
         $this->setMiddleName($middleName);
         $this->setLastName($lastName);
@@ -43,10 +43,6 @@ class register
     }
 
     //Setters.
-    public function setCustomerTitleId($customerTitleId){
-        $this->_customerTitleId = $customerTitleId;
-    }
-
     public function setFirstName($firstName){
         $this->_firstName = $firstName;
     }
@@ -95,11 +91,11 @@ class register
         $this->_password = $password;
     }
 
-    //Getters.
-    public function getCustomerTitleId(){
-        return $this->_customerTitleId;
+    public function setCustomerTitle($customerTitle){
+        $this->_customerTitle = $customerTitle;
     }
 
+    //Getters.
     public function getFirstName(){
         return $this->_firstName;
     }
@@ -148,12 +144,16 @@ class register
         return $this->_password;
     }
 
+    public function getCustomerTitle(){
+        return $this->_customerTitle;
+    }
+
     //Method.
     public function registerCustomer(){
         $connect = new PDO('mysql:host=localhost;dbname=repaircafe', 'root' /*, $password*/);
         $sql = $connect->prepare("INSERT INTO `customer`(
                                                               `customerId`, 
-                                                              `customerTitleId`, 
+                                                              `customerTitle`, 
                                                               `customerFirstname`, 
                                                               `customerMiddlename`, 
                                                               `customerLastname`, 
@@ -168,7 +168,7 @@ class register
                                                               `customerPassword`) 
                                             VALUES (
                                                     NULL,
-                                                    :customerTitleId,
+                                                    :customerTitle,
                                                     :firstName,
                                                     :middleName,
                                                     :lastName,
@@ -181,7 +181,8 @@ class register
                                                     :emailAddress,
                                                     :birthdate,
                                                     :password)");
-        $sql->bindParam(':customerTitleId', $this->_customerTitleId, PDO::PARAM_INT);
+
+        $sql->bindParam(':customerTitle', $this->_customerTitle, PDO::PARAM_STR);
         $sql->bindParam(':firstName', $this->_firstName, PDO::PARAM_STR);
         $sql->bindParam(':middleName', $this->_middleName, PDO::PARAM_STR);
         $sql->bindParam(':lastName', $this->_lastName, PDO::PARAM_STR);

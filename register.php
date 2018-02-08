@@ -14,7 +14,13 @@ if($_SESSION['loggedIn'] = 1){
 
         <!-- registratie formulier -->
         <div class="row">
-
+        
+            <label for="title">Aanhef: </label>
+            <select name="title">
+                <option>Dhr.</option>
+                <option>Mvr.</option>
+            </select>
+           
             <label for="firstName">Naam: </label>
             <input type="text" class="form-control" name="firstName" placeholder="Bijv. \'Peter\'" required>
 
@@ -43,7 +49,7 @@ if($_SESSION['loggedIn'] = 1){
             <input type="text" class="form-control" name="street" placeholder="Bijv. \'hoogstraat\'" required>
 
             <label for="houseNumber">Huisnummer: </label>
-            <input type="text" class="form-control" name="houseNumber" placeholder="Bijv. \'22\'" required>
+            <input type="number" class="form-control" name="houseNumber" placeholder="Bijv. \'22\'" required>
 
             <label for="houseNumberSuffix">Toevoeging: </label>
             <input type="text" class="form-control" name="houseNumberSuffix" placeholder="Bijv. \'A, B\'">
@@ -67,7 +73,7 @@ if($_SESSION['loggedIn'] = 1){
 
     if (isset($_POST['submit'])){
 
-        $test = new register('1233',
+        $test = new register($_POST['title'],
                                 $_POST['firstName'],
                                 $_POST['middleName'],
                                 $_POST['lastName'],
