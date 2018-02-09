@@ -26,8 +26,13 @@ include 'classes/login.php';
 
             <?php
 
-            $var = new login( $username, $password );
-            $var->loginCustomer();
+            if (isset($_POST['submit'])){
+
+                $var = new login( $username, $password );
+
+                $var->loginCustomer();
+
+            }
 
             ?>
 

@@ -11,7 +11,6 @@ class login
     //properties.
     private $_email;
     private $_password;
-    private $_userPassword;
 
     //Constructor.
     public function __construct($email, $password){
@@ -23,24 +22,33 @@ class login
 
     //Setters.
     public function setUsername($email){
+
         $this->_email = $email;
+
     }
 
     public function setPassword($password){
+
         $this->_password = $password;
+
     }
 
     //Getters.
     public function getUsername(){
+
         return $this->_email;
+
     }
 
     public function getPassword(){
+
         return $this->_password;
+
     }
 
     //Method.
     public function loginCustomer(){
+
         $connect = new PDO('mysql:host=localhost;dbname=repaircafe', 'root' /*, $password*/);
         $sql = $connect->prepare("SELECT `customerEmailadress`, `customerPassword` FROM `customer` WHERE `customerEmailadress` = :email");
         $sql->bindParam(':email',$this->_email, PDO::PARAM_STR);
@@ -49,9 +57,12 @@ class login
         $row = $sql->fetchAll();
 
         if ($this->_password == $row['customerPassword']){
+
             $_SESSION['loggedIn'] = 5;
-            $_SESSION['username'] = $this->_email;
+            $_SESSION['username'] = 'joeypleunis@live.nl'; //$this->_email;
+
         }
+
     }
 
 }

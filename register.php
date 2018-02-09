@@ -7,7 +7,8 @@
 ?>
 <?php
 
-if($_SESSION['loggedIn'] = 1){
+if($_SESSION['loggedIn'] = 5){
+
     echo '<div class="container">
 
     <form class="form-group" action="#" method="post">
