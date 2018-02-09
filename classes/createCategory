@@ -1,0 +1,59 @@
+<?php
+
+class Category
+{
+    //properties
+    private $_cat;
+
+    //constructor
+    public function __construct($cat)
+    {
+        $this->setKeukengerei($cat);
+    }
+
+    //setters
+    public function setKeukengerei($cat)
+    {
+        $this->_cat = $cat;
+    }
+
+
+    //getters
+    public function getCat()
+    {
+        return $this->_cat;
+    }
+
+
+    //methode
+    public function createCategory()
+    {   $cat = $this->getCat();
+        $username = 'root';
+        $password = '';
+        $db =  new PDO('mysql:host=localhost;dbname=repaircafe', $username /*, $password*/);
+        $sql= "INSERT INTO `category` (`categoryId`, `categoryName`) VALUES (NULL, '$cat');" ;
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        //$result = $stmt->fetchAll();
+
+    }
+}
+//$db = connectDB();
+//$sql= "INSERT INTO contact (berichtVerzender, berichtEmail, berichtOnderwerp, berichtInhoud) Values ('$naam', '$mailcon', '$ond', '$bericht')";
+//$stmt = $db->prepare($sql);
+//$stmt->execute();
+//$result = $stmt->fetch();
+//return $result;
+
+//UPDATE `category` SET `categoryName` = 'Computers' WHERE `category`.`categoryId` = 1;
+//$db = connectDB();
+//$sql= "INSERT INTO `cat` (`catNaam`, `catOmschrijving`, `catImg`) VALUES ('$catnaam', '$catOmschrijving', 'catImg')";
+//$stmt = $db->prepare($sql);
+//$stmt->execute();
+//$result = $stmt->fetchAll();
+//return $result;
+
+
+
+?>
